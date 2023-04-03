@@ -23,7 +23,7 @@ namespace idkRpg
 		public int potionsLeft;
 		public int swordUsesLeft;
 		public bool hasSword;
-		public Random random;
+		public Random random = new Random();
 		public Character()
 		{
 			health = 100;
@@ -51,7 +51,7 @@ namespace idkRpg
 			if (hasSword && swordUsesLeft > 0)
 			{
 				swordUsesLeft--;
-				int damage = random.Next(30, 50);
+				int damage = random.Next(35,50);
 				if (swordUsesLeft % 3 == 0)
 				{
 					damage = (int)Math.Floor((double)damage / 1.5);
@@ -75,14 +75,14 @@ namespace idkRpg
 				if (potionsLeft % 2 == 0)
 				{
 					healAmount = (int)Math.Floor((double)healAmount / 1.5);
-					Console.WriteLine("Léčivá koule se pokazila a její účinnost se snížila na " + healAmount + " healu.");
+					Console.WriteLine("Potion se pokazila a její účinnost se snížila na " + healAmount + " zdraví.");
 				}
-				Console.WriteLine("Používáme léčivou kouli a získáváme " + healAmount + " zdraví.");
+				Console.WriteLine("Používáme potion a získáváme " + healAmount + " zdraví.");
 				health += healAmount;
 			}
 			else
 			{
-				Console.WriteLine("Nemáte žádné léčivé koule v inventáři!");
+				Console.WriteLine("Nemáte žádný potion v inventáři!");
 			}
 		}
 		public void TakeDamage(int damage)

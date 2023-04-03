@@ -14,12 +14,12 @@ namespace idkRpg
 			{
 				Console.WriteLine("─────────────────────────────────");
 				Console.WriteLine("Vaše zdraví: " + character.health);
-				Console.WriteLine("Počet léčivých koulí: " + character.potionsLeft);
+				Console.WriteLine("Počet potionu: " + character.potionsLeft);
 				Console.WriteLine("Počet zbývajících použití meče: " + character.swordUsesLeft);
 
 				Console.WriteLine("Co chcete udělat?");
 				Console.WriteLine("1. Útok na monstra");
-				Console.WriteLine("2. Použití léčivé koule");
+				Console.WriteLine("2. Použití potion");
 				Console.WriteLine("3. Přidání itemu do inventáře");
 				string input = Console.ReadLine();
 				switch (input)

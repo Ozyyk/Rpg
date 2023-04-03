@@ -9,14 +9,14 @@ namespace idkRpg
 	internal class Monster
 	{
 		public int health;
-		protected Random random;
+		protected Random random = new Random();
 		public Monster()
 		{
-			health = 50;
+			health = 500;
 		}
 		public void Attack(Character character)
 		{
-			int damage = random.Next(10, 15);
+			int damage = random.Next(15,20);
 			Console.WriteLine("Monster útočí na nás a způsobuje " + damage + " poškození.");
 			character.TakeDamage(damage);
 		}
