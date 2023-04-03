@@ -1,36 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using idkRpg;
+using System;
 
-namespace idkRpg
+internal class Monster : BaseForMonster
 {
-	internal class Monster
+	protected Random random = new Random();
+
+	public Monster(int health, string name) : base(health, name)
 	{
-		public int health;
-		protected Random random = new Random();
-		public Monster()
+		HealthMonster = health;
+		NameOfMonster = name;
+	}
+
+	public void Attack(Character character)
+	{
+		int damage = random.Next(15, 20);
+		Console.WriteLine(NameOfMonster + " útočí na nás a způsobuje " + damage + " poškození.");
+		character.TakeDamage(damage);
+	}
+
+	public void TakeDamage(int damage)
+	{
+		HealthMonster -= damage;
+		if (HealthMonster <= 0)
 		{
-			health = 500;
+			Console.WriteLine(NameOfMonster + " byl poražen!");
 		}
-		public void Attack(Character character)
+		else
 		{
-			int damage = random.Next(15,20);
-			Console.WriteLine("Monster útočí na nás a způsobuje " + damage + " poškození.");
-			character.TakeDamage(damage);
-		}
-		public void TakeDamage(int damage)
-		{
-			health -= damage;
-			if (health <= 0)
-			{
-				Console.WriteLine("Monster byl poražen!");
-			}
-			else
-			{
-				Console.WriteLine("Monster ztrácí " + damage + " zdraví a zbývá mu " + health + " zdraví.");
-			}
+			Console.WriteLine(NameOfMonster + " ztrácí " + damage + " zdraví a zbývá mu " + HealthMonster + " zdraví.");
 		}
 	}
 }

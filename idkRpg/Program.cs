@@ -9,7 +9,7 @@ namespace idkRpg
 		{
 			Console.WriteLine("Vítejte v RPG hře!");
 			Character character = new Character();
-			Monster monster = new Monster();
+			Monster monster = new Monster(500, "DracekMracek");
 			while (true)
 			{
 				Console.WriteLine("─────────────────────────────────");
@@ -26,7 +26,7 @@ namespace idkRpg
 				{
 					case "1":
 						character.Attack(monster);
-						if (monster.health <= 0)
+						if (monster.HealthMonster <= 0)
 						{
 							break;
 						}
@@ -40,7 +40,7 @@ namespace idkRpg
 						Console.WriteLine("Zadej jmeno sveho itemu");
 						string name = Console.ReadLine();
 						Console.WriteLine("Chcete přidat sword nebo potion?");
-						string output = Console.ReadLine();
+						string output = Console.ReadLine().Trim().ToLower();
 						switch (output)
 						{
 							case "sword":
@@ -50,12 +50,14 @@ namespace idkRpg
 						}
 						break;
 				}
-				if (monster.health <= 0)
+				if (monster.HealthMonster <= 0)
 				{
 					Console.WriteLine("Konec hry");
 					Console.ReadLine();
 					Console.Clear();
 				}
+				Console.ReadKey();
+				Console.Clear();
 			}
 		}
 
